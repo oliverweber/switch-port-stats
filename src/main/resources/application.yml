@@ -1,0 +1,52 @@
+server:
+  port: 8080
+---
+spring:
+  profiles: development
+  datasource:
+    url: jdbc:mysql://localhost:3306/orw-smarthome?useSSL=false
+    username: orw-smarthome
+    password: 90wAtSepBjnPPFD2ZAL0
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+hibernate:
+  dialect: org.hibernate.dialect.MySQL5Dialect
+  show_sql: true
+  hbm2ddl:
+    auto: create
+entitymanager:
+  packagesToScan: org.oliverweber.smarthome.backend
+messaging:
+  queue:
+    smarthome-backend-in: dev-orw-smarthome-backend-in
+    smarthome-backend-out-prefix: dev-orw-smarthome-backend-out
+---
+spring:
+  profiles: production
+  datasource:
+    url: jdbc:mysql://localhost:3306/orw-smarthome?useSSL=false
+    username: orw-smarthome
+    password: PpjsgWeXJjYDt7uDf8OVxhmqNZ
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+hibernate:
+  dialect: org.hibernate.dialect.MySQL5Dialect
+  show_sql: true
+  hbm2ddl:
+    auto: create
+entitymanager:
+  packagesToScan: org.oliverweber.smarthome.backend
+messaging:
+  queue:
+    smarthome-backend-in: orw-smarthome-backend-in
+    smarthome-backend-out-prefix: orw-smarthome-backend-out
