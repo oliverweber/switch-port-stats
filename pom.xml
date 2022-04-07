@@ -33,13 +33,9 @@
 		</dependency>
 	</dependencies>
 	<distributionManagement>
-		<repository>
-			<id>dune</id>
-			<url>http://192.168.1.90:18081/nexus/content/repositories/releases/</url>
-		</repository>
 		<snapshotRepository>
-			<id>dune</id>
-			<url>http://192.168.1.90:18081/nexus/content/repositories/snapshots/</url>
+			<id>nexus</id>
+			<url>http://nexus.moerike.lan/repository/maven-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 </project>
