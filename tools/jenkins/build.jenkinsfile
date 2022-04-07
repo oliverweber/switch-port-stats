@@ -1,0 +1,45 @@
+#!/usr/bin/env groovy
+
+pipeline {
+
+  agent {
+    label 'jenkins-slave'
+  }
+
+  environment {
+    
+  }
+
+  parameters {
+
+  }
+
+  tools {
+
+    maven '3.6.0'
+
+  }
+
+  options {
+
+    disableConcurrentBuilds()
+  
+  }
+
+  stages {
+
+    stage('Build') {
+
+      steps {
+        withMaven(maven: '3.6.0', mavenLocalRepo: '.repository', mavenSettingsConfig: 'be7d879f-410f-41d1-97b9-bfb1463b3ca8') {
+
+          sh "mvn clean deploy"
+
+        }
+      }
+
+    }
+
+  }
+
+}
